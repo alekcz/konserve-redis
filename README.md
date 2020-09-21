@@ -1,4 +1,4 @@
-# konserve-carmine
+# konserve-redis
 
 A redis backend for [konserve](https://github.com/replikativ/konserve) implemented with [carmine](https://github.com/ptaoussanis/carmine). 
 
