@@ -5,7 +5,7 @@ A redis backend for [konserve](https://github.com/replikativ/konserve) implement
 
 # Status
 
-![Clojure CI](https://github.com/alekcz/konserve-redis/workflows/build/badge.svg?branch=master) [![codecov](https://codecov.io/gh/alekcz/konserve-redis/branch/master/graph/badge.svg)](https://codecov.io/gh/alekcz/konserve-redis) 
+![build](https://github.com/alekcz/konserve-redis/workflows/build/badge.svg?branch=master) [![codecov](https://codecov.io/gh/alekcz/konserve-redis/branch/master/graph/badge.svg)](https://codecov.io/gh/alekcz/konserve-redis) 
 
 ## Usage
 
