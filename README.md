@@ -9,7 +9,7 @@ A redis backend for [konserve](https://github.com/replikativ/konserve) implement
 
 ## Usage
 
-[![Clojars Project](https://img.shields.io/clojars/v/alekcz/konserve-redis.svg)](http://clojars.org/io.replikativ/konserve-redis)
+[![Clojars Project](https://img.shields.io/clojars/v/alekcz/konserve-redis.svg)](http://clojars.org/alekcz/konserve-redis)
 
 `[alekcz/konserve-redis "0.1.0-SNAPSHOT"]`
 
@@ -17,26 +17,26 @@ The purpose of konserve is to have a unified associative key-value interface for
 edn datastructures and binary blobs. Use the standard interface functions of konserve.
 
 You can provide the carmine redis connection specification map to the
-`new-carmine-store` constructor as an argument. We do not require additional
+`new-redis-store` constructor as an argument. We do not require additional
 settings beyond the konserve serialization protocol for the store, so you can
 still access the store through carmine directly wherever you need.
 
 ```clojure
-(require '[konserve-carmine.core :refer :all]
+(require '[konserve-redis.core :refer :all]
          '[clojure.core.async :refer [<!!] :as async]
          '[konserve.core :as k])
   
-  (def carmine-store (<!! (new-carmine-store {:pool {} :spec {:uri "redis://localhost:6379/"}})))
+  (def redis-store (<!! (new-redis-store {:pool {} :spec {:uri "redis://localhost:6379/"}})))
 
-  (<!! (k/exists? carmine-store  "cecilia"))
-  (<!! (k/get-in carmine-store ["cecilia"]))
-  (<!! (k/assoc-in carmine-store ["cecilia"] 28))
-  (<!! (k/update-in carmine-store ["cecilia"] inc))
-  (<!! (k/get-in carmine-store ["cecilia"]))
+  (<!! (k/exists? redis-store  "cecilia"))
+  (<!! (k/get-in redis-store ["cecilia"]))
+  (<!! (k/assoc-in redis-store ["cecilia"] 28))
+  (<!! (k/update-in redis-store ["cecilia"] inc))
+  (<!! (k/get-in redis-store ["cecilia"]))
 
   (defrecord Test [a])
-  (<!! (k/assoc-in carmine-store ["agatha"] (Test. 35)))
-  (<!! (k/get-in carmine-store ["agatha"]))
+  (<!! (k/assoc-in redis-store ["agatha"] (Test. 35)))
+  (<!! (k/get-in redis-store ["agatha"]))
 ```
 
 
